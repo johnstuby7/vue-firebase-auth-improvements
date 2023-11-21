@@ -7,7 +7,6 @@ import TheWelcome from './components/TheWelcome.vue'
   <main>
     <TheWelcome />
   </main>
-  <RouterView />
 </template>
 
 <style scoped></style>
