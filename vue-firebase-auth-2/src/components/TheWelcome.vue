@@ -10,7 +10,7 @@ const data = ref({
 
 const mode = ref('login');
 
-const user = ref(null)
+const user = ref('');
 
 function toggleMode(val) {
   mode.value = val
@@ -49,13 +49,18 @@ async function signout() {
 }
 
 onAuthStateChanged(auth, currentUser => {
-  user.value = currentUser
+  user.value = currentUser;
+  console.log(user.value); console.log("users");
 })
 </script>
 
 <template>
   <div>
-    <div v-if="user">{{ user?.email }}<button @click="signout">Sign Out</button></div>
+    <div v-if="user">{{ user.email }}<button @click="signout">Sign Out</button></div>
+    <p>
+
+      {{ user }} user
+    </p>
     <form @submit.preventDefault="submit">
       <input type="email" placeholder="Enter Email" v-model="data.email"> <br />
       <input type="password" placeholder="Enter password" v-model="data.password"> <br />
